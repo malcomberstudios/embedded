@@ -1,16 +1,8 @@
-<!-- # embedded
-[![embedded CI](https://github.com/mandarineorg/embedded/workflows/Unit%20Tests/badge.svg)](https://github.com/mandarineorg/embedded)
-
-<img src="https://www.mandarinets.org/assets/images/full-logo-simple.svg" width="180" height="180" />
-
-A fake file system for [Deno](https://deno.land) binaries by [Mandarine](https://deno.land/x/mandarinets). -->
-
-
-
 # Embedded
+A fake file system for [Deno](https://deno.land) binaries originally by [Mandarine](https://deno.land/x/mandarinets). Repurposed by Malcomber Studios (Royston Malcomber)
 
 ## Notice
-This was a fork from [mandarineorg/embedded](https://github.com/mandarineorg/leaf). 
+This was a fork from [mandarineorg/leaf](https://github.com/mandarineorg/leaf). 
 
 Unfortunately I think the project is now dead, two years since a pull request and any releases. I think the project has potential. 
 
@@ -29,7 +21,7 @@ The `embedded.compile()` method is responsible for creating a typescript file wi
 
 ```typescript
 // File: compile.ts
-import { embedded } from "https://deno.land/x/embedded/mod.ts";
+import { embedded } from 'https://deno.land/x/embedded@0.0.2/mod.ts';
 
 embedded.compile({
     modulePath: "./myEntryPoint.ts",
@@ -86,9 +78,9 @@ We **run** the `compile.ts` script which creates the file system `.ts` which the
 
 ```typescript
 // compile.ts
-import { Embedded } from "https://deno.land/x/embedded/mod.ts";
+import { embedded } from 'https://deno.land/x/embedded@0.0.2/mod.ts';
 
-Embedded.compile({
+embedded.compile({
     modulePath: "./myEntryPoint.ts",
     contentFolders: ["./resources"]
 })
@@ -113,3 +105,14 @@ deno run --allow-all --unstable compile.ts
 # output: Hello World
 ```
 -----------------
+
+# Todo
+
+There's things outstanding that I would like to complete.
+
+- All read filesystem functions support
+- Test with web frameworks such as oak
+- Improve performance
+- Improve options when compiling
+- Create a portable binary to embed from command line
+- Create a way to still use original filesystem functions

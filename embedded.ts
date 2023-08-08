@@ -58,7 +58,7 @@ export type CompileOptions = {
     output?: string;
 }
 
-export class Embedded {
+export class embedded {
     private static files: FileStorageTypedArray = {};
 
     private static storageToJson(): string {

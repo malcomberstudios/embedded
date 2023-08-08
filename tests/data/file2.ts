@@ -1,6 +1,6 @@
-import { Embedded } from '../../embedded.ts';
+import { embedded } from '../../embedded.ts';
 
-Embedded.compile({ 
+embedded.compile({ 
     modulePath: "./tests/data/file.ts", 
     contentFolders: ["./tests"] 
 });

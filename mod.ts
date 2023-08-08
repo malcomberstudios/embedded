@@ -1,1 +1,1 @@
-export { Embedded } from './embedded.ts';
+export { embedded } from './embedded.ts';

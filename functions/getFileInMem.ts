@@ -1,13 +1,13 @@
 import { MemMethods } from './methods.ts';
 
-export const MANDARINE_GET_FILE_IN_MEM = (globalThis: MemMethods, path: string | URL): Uint8Array => {
+export const EMBEDDED_GET_FILE_IN_MEM = (globalThis: MemMethods, path: string | URL): Uint8Array => {
     const filePath = globalThis["getFilePath"](path);
 
     if(!filePath) throw new Error("Invalid Path");
 
-    const fileInMemory = globalThis["MANDARINE_FILE_SYSTEM"][filePath] 
-        || (globalThis["MANDARINE_FILE_SYSTEM"][`./${filePath}`] 
-        || globalThis["MANDARINE_FILE_SYSTEM"][filePath.replace("./", "")]);
+    const fileInMemory = globalThis["EMBEDDED_FILE_SYSTEM"][filePath] 
+        || (globalThis["EMBEDDED_FILE_SYSTEM"][`./${filePath}`] 
+        || globalThis["EMBEDDED_FILE_SYSTEM"][filePath.replace("./", "")]);
 
     if(!fileInMemory) {
         throw new Error(`[Leaf] File not found (${filePath}).`);
@@ -16,4 +16,4 @@ export const MANDARINE_GET_FILE_IN_MEM = (globalThis: MemMethods, path: string |
     }
 }
 
-export const getFileInMem = ["getFileInMem", MANDARINE_GET_FILE_IN_MEM.toString()];
+export const getFileInMem = ["getFileInMem", EMBEDDED_GET_FILE_IN_MEM.toString()];

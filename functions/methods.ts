@@ -1,9 +1,9 @@
-import { getFileInMem } from "./getFileInMem.ts";
-import { getFilePathString } from "./getFilePath.ts";
+import { getFileInMem } from './getFileInMem.ts';
+import { getFilePathString } from './getFilePath.ts';
 
 export interface MemMethods {
     getFilePath: (path: string | URL) => string;
-    ["MANDARINE_FILE_SYSTEM"]: {
+    ["EMBEDDED_FILE_SYSTEM"]: {
         [prop: string]: Uint8Array
     }
 }
