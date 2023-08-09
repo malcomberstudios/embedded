@@ -7,6 +7,7 @@ import {
   walkSync,
 } from './deps.ts';
 import { MEM_METHODS } from './functions/methods.ts';
+import { log } from './utils/log.ts';
 
 type FileStorageNumbers = { [path: string]: Array<number> };
 type FileStorageTypedArray = { [path: string]: Uint8Array };
@@ -74,7 +75,7 @@ export class embedded {
         if(fileExists(filePath)) {
             const fileContent = Deno.readFileSync(filePath);
             this.files[filePath] = fileContent;
-            console.log(`Embedded ${filePath}`);
+            log.success(`Embedded ${filePath}`);
         } else {
             throw new Error(`File not found (${filePath}).`);
         }
